@@ -16,9 +16,10 @@ struct AchievementView: View {
                 Text("Goal Reached!")
                     .font(.headline)
 
-                Text("Great job drinking water today.")
+                Text("Excellent work today.")
                     .font(.caption)
                     .multilineTextAlignment(.center)
+
             } else {
                 Image(systemName: "figure.walk")
                     .font(.system(size: 35))
@@ -31,6 +32,9 @@ struct AchievementView: View {
                     .font(.caption)
                     .multilineTextAlignment(.center)
             }
+
+            ProgressView(value: Double(glasses), total: Double(goal))
+                .tint(glasses >= goal ? .green : .blue)
         }
         .padding()
     }
